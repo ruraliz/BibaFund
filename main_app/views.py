@@ -28,6 +28,9 @@ def investment(request):
 def fund(request):
     return render(request, 'funds/index.html')
 
+def team(request):
+    return render(request, 'teams/index.html')
+
 def login_view(request):
      # if post, then authenticate (user submitted username and password)
     if request.method == 'POST':
