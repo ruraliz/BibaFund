@@ -1,10 +1,67 @@
 {% extends 'base.html' %}
 {% block content %}
-<p>Biba has a long term vision of building a world class investment management firm (machine). 
-    For this goal, Biba aims to build a multistrategy machinery that will contain VC business, PE business, 
-    HF business, REITs, and Alternative Asset investment business. Given our lofty ambitions as a firm, 
-    we will craft a Roadmap of short term goals, 
-    mid-term goals, and long term goals, which will be a year, three years, and ten years respectively. 
-    Primarily we want to build a VC business. </p>
-   <img src="static/bibalogo.jpg"> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>About Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="jumbotron">
+        <div class="container text-center">
+          <h1>About Us</h1>      
+          <p>VISION, MANDATE & OUR STORY</p>
+        </div>
+    </div> 
+   <div class="container">    
+      <div class="col-sm-4"> 
+        <div class="panel panel-success">
+          <div class="panel-heading">VISION</div>
+          <p style="font-weight:500">Biba has a long term vision of building a world class investment management firm (machine). 
+            For this goal, Biba aims to build a multistrategy machinery that will contain VC business, PE business, 
+            HF business, REITs, and Alternative Asset investment business.</p>
+        </div>
+      </div>
+      <div class="col-sm-4"> 
+        <div class="panel panel-success">
+          <div class="panel-heading">MANDATE</div>
+          <p style="font-weight:500">Given our lofty ambitions as a firm, we will craft a Roadmap of short term goals,mid-term goals, 
+            and long term goals, which will be a year, three years, and ten years respectively. 
+            Primarily we want to build a VC business.</p>
+        </div>
+      </div>
+      <div class="col-sm-4"> 
+        <div class="panel panel-success">
+          <div class="panel-heading">OUR STORY</div>
+          <p style="font-weight:500">Biba our name comes from the word kubiba, a kinyarwanda word that means to flower or to plant a seed, which is our goal as a fund.
+        </p>
+        </div>
+      </div>
+    </div>
+  </div><br>
+  
+  <div class="container">    
+    <div class="col-sm-4"> 
+        <div class="panel panel-primary">
+          <div class="panel-body"><img src="../static/seed.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+        </div>
+      </div>
+      <div class="col-sm-4"> 
+        <div class="panel panel-primary">
+          <div class="panel-body"><img src="../static/reward.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+        </div>
+      </div>
+      <div class="col-sm-4"> 
+        <div class="panel panel-primary">
+          <div class="panel-body"><img src="../static/arrow.jpg" class="img-responsive" style="width:950px; height: 210px;" alt="Image"></div>
+        </div>
+      </div>
+    </div>
+  </div><br><br>
+  </body>
+  </html>
 {% endblock %}    

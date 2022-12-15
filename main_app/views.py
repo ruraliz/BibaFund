@@ -29,7 +29,7 @@ def fund(request):
     return render(request, 'funds/index.html')
 
 def team(request):
-    return render(request, 'teams/index.html')
+    return render(request, 'team.html')
 
 def login_view(request):
      # if post, then authenticate (user submitted username and password)

@@ -6,6 +6,7 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
     path('investment/', views.investment, name='investment'),
+    path('team/', views.team, name='team'),
     # path('fund/<int:fund_id>', views.fund, name='fund'),
     # path('jobs/<int:jobs_id>', views.job_index, name='jobs'),
     # path('user/<username>', views.profile, name="profile"),
