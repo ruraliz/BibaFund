@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 #Cat model that is connected to the Dtabase
-from .models import Fund
+from .models import Fund, Job
 # add these lines to the imports at the top
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
@@ -25,11 +25,16 @@ def contact(request):
 def investment(request):
     return render(request, 'investment.html')
 
-def fund(request):
-    return render(request, 'funds/index.html')
-
 def team(request):
     return render(request, 'team.html')
+
+def fund(request):
+    funds= list(Fund.objects.all())
+    return render(request, 'funds/index.html', { 'funds': funds })
+
+def job(request):
+    jobs= list(Job.objects.all())
+    return render(request, 'jobs/index.html', { 'jobs': jobs })
 
 def login_view(request):
      # if post, then authenticate (user submitted username and password)

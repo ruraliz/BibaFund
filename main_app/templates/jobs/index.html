@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{% block content %}
+{% for job in jobs %}
+    <div class="card text-center">
+        <div class="card-header">
+          Featured
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ job.name }}</h5>
+          <p class="card-text">{{ job.description }}</p>
+          <p class="card-text"> Qualification: {{ job.qualification }}</p>
+          <p class="card-text"> Deadline: {{ job.deadline }}</p>
+          <a href="/job/{{job.id}}" class="btn btn-primary">View {{job.name}}</a>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}
