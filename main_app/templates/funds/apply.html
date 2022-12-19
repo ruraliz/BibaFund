@@ -11,9 +11,14 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<form action="SEND ADDRESS" id="ft-form" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+    <style>
+        form{
+            margin-left: 80px;
+        }
+    </style>
+<form action="https://formsubmit.co/ruraliz12@gmail.com" id="ft-form" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
     <fieldset>
-      <legend>Job</legend>
+      <legend>Fund Application</legend>
       <label>
         Application for *
         <select name="Application for" required>
@@ -22,39 +27,42 @@
       </label>
     </fieldset>
     <fieldset>
-      <legend>  Project Information</legend>
+      <legend>  Details of the Applicant </legend>
       <div class="two-cols">
         <label>
-          Company Name *
+          Company/Business Name *
           <input type="text" name="First name" required>
         </label>
+        <br>
         <label>
-          Company Location *
+          Contact Person *
           <input type="text" name="Family name" required>
         </label>
-      </div>
-      <div class="two-cols">
-        <label>
-          Industry
-          <input type="text" name="Citizenship">
-        </label>
-        <label>
-          Date of birth
-          <input type="date" name="Date of birth">
-        </label>
+        <br>
       </div>
       <label>
-        Address
-        <input type="text" name="Address">
+        Address of Company or Contact Person
       </label>
+      <br>
       <div class="two-cols">
+        <label>
+            Country
+            <input type="text" name="COUNTRY">
+          </label>
+          <br>
+          <label>
+            City
+            <input type="text" name="City">
+          </label>
+          <br>
+        <label>
+        Address
+          <input type="text" name="Address">
+        </label>
+        <br>
         <label>
           ZIP Code
           <input type="text" name="ZIP">
-        </label>
-        <label>
-          City
-          <input type="text" name="City">
         </label>
       </div>
       <div class="two-cols">
@@ -62,6 +70,7 @@
           Phone *
           <input type="tel" name="Phone" required>
         </label>
+        <br>
         <label>
           Email address *
           <input type="email" name="Email" required>
@@ -76,18 +85,17 @@
           Application letter
           <input type="file" name="Application letter" accept=".doc,.docx,.pdf">
         </label>
+        <br>
         <label>
-          Curriculum vitae
+          Company Website
           <input type="file" name="Curriculum vitae" accept=".doc,.docx,.pdf">
         </label>
       </div>
       <p>Possible file types: DOC, PDF. Maximum file size: 10 MB.</p>
     </fieldset>
-    <div class="btns">
-      <input type="text" name="_gotcha" value="" style="display:none;">
-      <input type="submit" value="Submit application">
-    </div>
+    <button type="submit" class="btn btn-primary" style= "margin-left: 200px" >Submit</button>
   </form>
+  <span style= "margin-left: 500px" class= "glyphicon glyphicon-chevron-left"></span><a  style= "font-weight: bolder; color: rgb(68, 127, 61);" href="/job">Go Back to Funds</a>
 </body>
 </html>
 

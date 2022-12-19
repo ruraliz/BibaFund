@@ -44,6 +44,12 @@ def job_apply(request, job_id):
     job = Job.objects.get(id=job_id)
     return render(request, 'jobs/apply.html',{'job': job})
 
+def profile(request, username):
+  user = User.objects.get(username=username)
+  funds= Fund.objects.filter(user=user)
+  jobs= Job.objects.filter(user=user)
+  return render(request, 'profile.html', {'username': username, 'fund': funds, 'job': jobs})
+
 def login_view(request):
      # if post, then authenticate (user submitted username and password)
     if request.method == 'POST':

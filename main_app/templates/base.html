@@ -47,11 +47,12 @@
         {% if user.is_authenticated %}
         <li><a href="/fund">Apply/Funds</a></li>
         <li><a href="/job">Jobs</a></li>
-        <li><a href="/profile">Profile</a></li>
-        <li class="breadcrumb-item active" aria-current="page"><a href="/user/{{user}}">{{user}}'s Profile</a></li>
-        <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'logout' %}">Logout</a></li>
-        {% else %}
       </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="breadcrumb-item active" aria-current="page"><a href="/user/{{user}}">{{user}}'s Profile</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+        {% else %}
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Signup</a></li>
         <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>

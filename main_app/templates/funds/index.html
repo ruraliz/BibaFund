@@ -1,17 +1,49 @@
 {% extends 'base.html'%}
 {% block content %}
 {% for fund in funds %}
-    <div class="card text-center">
-        <div class="card-header">
-          Featured
+<div class="container">
+    <h2>{{fund.name}}</h2>
+    <div class="panel-group" id="accordion">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"
+              >Description</a
+            >
+          </h4>
         </div>
-        <div class="card-body">
-          <h5 class="card-title">{{ fund.name }}</h5>
-          <p class="card-text">{{ fund.description }}</p>
-          <p class="card-text"> Qualification: {{ fund.qualification }}</p>
-          <p class="card-text"> Deadline: {{ fund.deadline }}</p>
-          <a href="/fund/{{fund.id}}" class="btn btn-primary">Apply for  {{fund.name}}</a>
+        <div id="collapse1" class="panel-collapse collapse">
+          <div class="panel-body">{{ fund.description }}</div>
         </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2"
+              >Qualifications</a
+            >
+          </h4>
+        </div>
+        <div id="collapse2" class="panel-collapse collapse">
+          <div class="panel-body">{{ fund.qualification }}</div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse3"
+              >Deadline</a
+            >
+          </h4>
+        </div>
+        <div id="collapse3" class="panel-collapse collapse">
+          <div class="panel-body">{{ fund.deadline }}</div>
+        </div>
+        <a style="margin-left:460px" href="/fund/{{fund.id}}" class="btn btn-primary"
+          >Apply</a
+        >
+      </div>
     </div>
+  </div>
 {% endfor %}
 {% endblock %}
