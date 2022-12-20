@@ -12,6 +12,7 @@ urlpatterns = [
     path('fund/<int:fund_id>', views.fund_apply, name='fund_apply'),
     path('job/<int:job_id>', views.job_apply, name='job_apply'),
     path('user/<username>', views.profile, name="profile"),
+    path('applied/create', views.FundCreate.as_view(), name='applied_create'),
     # path('fund/<int:pk>/update', views.FundUpdate.as_view(), name='funds_update'),
     # path('fund/<int:pk>/delete', views.FundDelete.as_view(), name='funds_delete'),
     path('login/', views.login_view, name="login"),

@@ -12,6 +12,55 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 # Create your views here.
 
+class FundCreate(CreateView):
+  model = Fund
+  fields = ['applied', 'remindtoapply']
+  success_url = '/fund'
+  def form_valid(self, form):
+    self.object = form.save(commit=False)
+    self.object.user= self.request.user
+    self.object.save()
+    return HttpResponseRedirect('/fund')
+
+
+class FundUpdate(UpdateView):
+  model = Fund
+  fields = ['applied', 'remindtoapply']
+  def form_valid(self, form):
+    self.object = form.save(commit=False)
+    self.object.save()
+    return HttpResponseRedirect('/fund/' + str(self.object.pk))
+
+
+class FundDelete(DeleteView):
+  model = Fund
+  success_url = '/fund'
+
+
+class JobCreate(CreateView):
+  model = Job
+  fields = ['applied', 'remindtoapply']
+  success_url = '/job'
+  def form_valid(self, form):
+    self.object = form.save(commit=False)
+    self.object.user= self.request.user
+    self.object.save()
+    return HttpResponseRedirect('/job')
+
+
+class JobUpdate(UpdateView):
+  model = Job
+  fields = ['applied', 'remindtoapply']
+  def form_valid(self, form):
+    self.object = form.save(commit=False)
+    self.object.save()
+    return HttpResponseRedirect('/job/' + str(self.object.pk))
+
+
+class JobDelete(DeleteView):
+  model = Job
+  success_url = '/job'
+
 
 def index(request):
     return render(request, 'index.html')
