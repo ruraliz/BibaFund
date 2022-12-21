@@ -10,9 +10,10 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
-class ActivityCreate(CreateView):
+class ActivityCreate( LoginRequiredMixin, CreateView):
   model = Activity
   fields = ['applied', 'remindtoapply']
   success_url = '/activity'
@@ -21,21 +22,20 @@ class ActivityCreate(CreateView):
     self.object.user= self.request.user
     self.object.save()
     return HttpResponseRedirect('/activity')
-@method_decorator(login_required, name='dispatch')
 
-class ActivityUpdate(UpdateView):
+
+class ActivityUpdate(LoginRequiredMixin, UpdateView):
   model = Activity
   fields = ['applied', 'remindtoapply']
   def form_valid(self, form):
     self.object = form.save(commit=False)
     self.object.save()
     return HttpResponseRedirect('/activity')
-@method_decorator(login_required, name='dispatch')
 
-class ActivityDelete(DeleteView):
+
+class ActivityDelete(LoginRequiredMixin, DeleteView):
   model = Activity
   success_url = '/activity'
-@method_decorator(login_required, name='dispatch')
 
 
 def index(request):
@@ -95,7 +95,7 @@ def login_view(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return HttpResponseRedirect('/user/'+u)
+                    return HttpResponseRedirect('/')
                 else:
                     print('The account has been disabled.')
             else:
