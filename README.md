@@ -9,4 +9,17 @@ As a business owner trying to secure funds or an investor interested in supporti
 
     
 ## Wire Frame 
-<img href= "">
+<img src= "/static/wireframe/about.jpg">
+<img src= "/static/wireframe/home1.jpg">
+<img src= "/static/wireframe/team.jpg">
+<img src= "/static/wireframe/investment.jpg">
+
+## The APP
+
+
+## Future Improvements
+- Allow user to view progress of their application
+- Add App socials such as youtube, twitter etc.. 
+-  Allow user to intereact more with the website by allowing them to create their own profile page.
+- Add more styling and functionality to the app in general, especially the applications and home page.  
+
