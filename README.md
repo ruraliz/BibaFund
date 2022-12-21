@@ -9,10 +9,10 @@ As a business owner trying to secure funds or an investor interested in supporti
 
     
 ## Wire Frame 
-<img width= "30px" src= "main_app/static/wireframe/about.jpg">
-<img width= "30px" src= "main_app/static/wireframe/home1.jpg">
-<img width= "30px" src= "main_app/static/wireframe/team.jpg">
-<img width= "30px" src= "main_app/static/wireframe/investment.jpg">
+<img width= "80px" src= "main_app/static/wireframe/about.jpg">
+<img width= "80px" src= "main_app/static/wireframe/home1.jpg">
+<img width= "80px" src= "main_app/static/wireframe/team.jpg">
+<img width= "80px" src= "main_app/static/wireframe/investment.jpg">
 
 ## The APP
 
