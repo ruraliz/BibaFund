@@ -9,7 +9,7 @@ As a business owner trying to secure funds or an investor interested in supporti
 
     
 ## Wire Frame 
-<img width= "1200px" src= "main_app/static/wireframe/about.jpg">
+<img width= "120px" src= "main_app/static/wireframe/about.jpg">
 <img width= "120px" src= "main_app/static/wireframe/home1.jpg">
 <img width= "120px" src= "main_app/static/wireframe/team.jpg">
 <img width= "120px" src= "main_app/static/wireframe/investment.jpg">
