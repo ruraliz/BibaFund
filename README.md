@@ -12,7 +12,7 @@ As a business owner trying to secure funds or an investor interested in supporti
 <img src= "/static/wireframe/about.jpg">
 <img src= "/static/wireframe/home1.jpg">
 <img src= "/static/wireframe/team.jpg">
-<img src= "/static/wireframe/investment.jpg">
+<img src= "main_app/static/wireframe/investment.gif">
 
 ## The APP
 
