@@ -14,8 +14,8 @@ As a business owner trying to secure funds or an investor interested in supporti
 <img width= "120px" src= "main_app/static/wireframe/team.jpg">
 <img width= "120px" src= "main_app/static/wireframe/investment.jpg">
 
-## The APP
-
+## Technologies Used
+[![My Skills](https://skillicons.dev/icons?i=django,html,css, python, postgresql,wasm)](https://skillicons.dev)
 
 ## Future Improvements
 - Allow user to view progress of their application
