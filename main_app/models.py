@@ -7,8 +7,6 @@ class Fund(models.Model):
     qualification= models.CharField(max_length=500)
     description= models.CharField(max_length=500)
     deadline= models.CharField(max_length=100)
-    applied= models.CharField(max_length=100, null=True)
-    remindtoapply= models.CharField(max_length=100, null=True)
     user= models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     
     def __str__(self):
@@ -19,9 +17,15 @@ class Job(models.Model):
     qualification= models.CharField(max_length=500)
     description= models.CharField(max_length=500)
     deadline= models.CharField(max_length=100)
+    user= models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return self.name  
+
+class Activity(models.Model):
     applied= models.CharField(max_length=100, null=True)
     remindtoapply= models.CharField(max_length=100, null=True)
     user= models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return self.name   
+        return self.applied  

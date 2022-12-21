@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 #Cat model that is connected to the Dtabase
-from .models import Fund, Job
+from .models import Fund, Job, Activity
 # add these lines to the imports at the top
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
@@ -12,54 +12,30 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 # Create your views here.
 
-class FundCreate(CreateView):
-  model = Fund
+class ActivityCreate(CreateView):
+  model = Activity
   fields = ['applied', 'remindtoapply']
-  success_url = '/fund'
+  success_url = '/activity'
   def form_valid(self, form):
     self.object = form.save(commit=False)
     self.object.user= self.request.user
     self.object.save()
-    return HttpResponseRedirect('/fund')
+    return HttpResponseRedirect('/activity')
+@method_decorator(login_required, name='dispatch')
 
-
-class FundUpdate(UpdateView):
-  model = Fund
+class ActivityUpdate(UpdateView):
+  model = Activity
   fields = ['applied', 'remindtoapply']
   def form_valid(self, form):
     self.object = form.save(commit=False)
     self.object.save()
-    return HttpResponseRedirect('/fund/' + str(self.object.pk))
+    return HttpResponseRedirect('/activity')
+@method_decorator(login_required, name='dispatch')
 
-
-class FundDelete(DeleteView):
-  model = Fund
-  success_url = '/fund'
-
-
-class JobCreate(CreateView):
-  model = Job
-  fields = ['applied', 'remindtoapply']
-  success_url = '/job'
-  def form_valid(self, form):
-    self.object = form.save(commit=False)
-    self.object.user= self.request.user
-    self.object.save()
-    return HttpResponseRedirect('/job')
-
-
-class JobUpdate(UpdateView):
-  model = Job
-  fields = ['applied', 'remindtoapply']
-  def form_valid(self, form):
-    self.object = form.save(commit=False)
-    self.object.save()
-    return HttpResponseRedirect('/job/' + str(self.object.pk))
-
-
-class JobDelete(DeleteView):
-  model = Job
-  success_url = '/job'
+class ActivityDelete(DeleteView):
+  model = Activity
+  success_url = '/activity'
+@method_decorator(login_required, name='dispatch')
 
 
 def index(request):
@@ -77,30 +53,39 @@ def investment(request):
 def team(request):
     return render(request, 'team.html')
 
+@login_required
 def fund(request):
     funds= list(Fund.objects.all())
     return render(request, 'funds/index.html', { 'funds': funds })
 
+@login_required
 def job(request):
     jobs= list(Job.objects.all())
     return render(request, 'jobs/index.html', { 'jobs': jobs })
 
+@login_required
 def fund_apply(request, fund_id):
     fund = Fund.objects.get(id=fund_id)
     return render(request, 'funds/apply.html',{'fund': fund})
 
+@login_required
 def job_apply(request, job_id):
     job = Job.objects.get(id=job_id)
     return render(request, 'jobs/apply.html',{'job': job})
 
+@login_required
+def activity(request):
+    activities = list(Activity.objects.all())
+    return render(request, 'activity.html',{'activities': activities})
+    
+@login_required
 def profile(request, username):
   user = User.objects.get(username=username)
   funds= Fund.objects.filter(user=user)
   jobs= Job.objects.filter(user=user)
-  return render(request, 'profile.html', {'username': username, 'fund': funds, 'job': jobs})
+  return render(request, 'profile.html', {'username': username,'funds': funds, 'job': jobs,})
 
 def login_view(request):
-     # if post, then authenticate (user submitted username and password)
     if request.method == 'POST':
         form = AuthenticationForm(request, request.POST)
         if form.is_valid():
