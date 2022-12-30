@@ -24,7 +24,7 @@ body {
 .screen {		
 	background: linear-gradient(90deg, #91d983, #91d983);		
 	position: relative;	
-	height: 600px;
+	height: 800px;
 	width: 360px;	
 	box-shadow: 0px 0px 24px #91d983;
 }
@@ -186,29 +186,41 @@ body {
 <div class="container">
 	<div class="screen">
 		<div class="screen__content">
-			<form method="post" class="login">
+			<form method="POST" action="." class="login">
                 {% csrf_token %}
-                <div class="signup__field">
-					<i class="fa fa-user"></i>
-					<input type="fname" class="signup__input" placeholder="Full Name", name="name">
-				</div>
+				    <div class="signup__field">
+					    <i style="margin-left: 10px" class="fa fa-user"> First name</i>
+                        {{form.first_name}}
+                    </div>
+                    <div class="signup__field">
+                        <i style="margin-left: 10px"  class="fa fa-user"> Last name</i>
+                        {{form.last_name}}
+                    </div>
+                    <div class="signup__field">
+                        <i style="margin-left: 10px"  class="fa fa-user"> Email</i>
+                        {{form.email}}
+                    </div>
+                    <div class="signup__field">
+                        <i style="margin-left: 10px"  class="fa fa-user"> Username</i>
+                        {{form.username}}
+                    </div>  
+			
 				<div class="signup__field">
-					<i class="fa fa-user"></i>
-					<input type="text" class="signup__input" placeholder="User name / Email", name="username">
-				</div>
-				<div class="signup__field">
-					<i class="fa fa-lock"></i>
-					<input type="password" class="signup__input" placeholder="Password", name="password">
+					<i  style="margin-left: 10px" class="fa fa-lock"> Password</i>
+					
+                    {{form.password1}}
 				</div>
                 <div class="signup__field">
-					<i class="fa fa-lock"></i>
-					<input type="password" class="signup__input" placeholder="Password Confirmation", name="password">
+					<i style="margin-left: 10px" class="fa fa-lock"> Password Confirmation</i>
+					
+                    {{form.password2}}
 				</div>
 				<button class="button signup__submit" type="submit" value="Submit">
 					<span class="button__text">Sign Up Now</span>
 					<i style="margin-left: 10px" class="fa fa-chevron-right"></i>
 				</button>				
 			</form>
+
 			<div class="social-login">
 				<h3>log in via</h3>
 				<div class="social-icons">

@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-#Cat model that is connected to the Dtabase
+
 from .models import Fund, Job, Activity
-# add these lines to the imports at the top
+from .forms import SignUpForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
@@ -11,7 +11,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.mixins import LoginRequiredMixin
-# Create your views here.
 
 class ActivityCreate( LoginRequiredMixin, CreateView):
   model = Activity
@@ -100,7 +99,7 @@ def login_view(request):
                     print('The account has been disabled.')
             else:
                 print('The username and/or password is incorrect.')
-    else: # it was a get request so send the emtpy login form
+    else: 
         form = AuthenticationForm()
         return render(request, 'login.html', {'form': form})
 def logout_view(request):
@@ -108,11 +107,18 @@ def logout_view(request):
     return HttpResponseRedirect('/')
 def signup_view(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = SignUpForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return HttpResponseRedirect('/')
+            # username= form.cleaned_data['username']
+            # password= form.cleaned_data['password']
+            # first_name= form.cleaned_data['first_name']
+            # last_name= form.cleaned_data['last_name']
+            # email= form.cleaned_data['email']
+            new_user= form.save()
+            # new_user = authenticate(username=username, password=password, first_name=first_name, last_name=last_name, email=email)
+            if new_user is not None:
+                login(request, new_user)
+                return HttpResponseRedirect('/')
     else:
-        form = UserCreationForm()
+        form = SignUpForm()
         return render(request, 'signup.html', {'form': form })
