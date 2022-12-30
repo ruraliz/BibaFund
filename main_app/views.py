@@ -109,13 +109,7 @@ def signup_view(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            # username= form.cleaned_data['username']
-            # password= form.cleaned_data['password']
-            # first_name= form.cleaned_data['first_name']
-            # last_name= form.cleaned_data['last_name']
-            # email= form.cleaned_data['email']
             new_user= form.save()
-            # new_user = authenticate(username=username, password=password, first_name=first_name, last_name=last_name, email=email)
             if new_user is not None:
                 login(request, new_user)
                 return HttpResponseRedirect('/')
