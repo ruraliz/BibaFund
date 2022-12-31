@@ -14,7 +14,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 class ActivityCreate( LoginRequiredMixin, CreateView):
   model = Activity
-  fields = ['applied', 'remindtoapply']
+  fields = '__all__'
   success_url = '/activity'
   def form_valid(self, form):
     self.object = form.save(commit=False)
@@ -73,9 +73,10 @@ def job_apply(request, job_id):
     return render(request, 'jobs/apply.html',{'job': job})
 
 @login_required
-def activity(request):
-    activities = list(Activity.objects.all())
-    return render(request, 'activity.html',{'activities': activities})
+def activity(request, username):
+    user = User.objects.get(username=username)
+    activities = Activity.objects.filter(user=user)
+    return render(request, 'activity.html',{'username': username,'activities': activities})
     
 @login_required
 def profile(request, username):
