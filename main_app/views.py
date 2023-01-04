@@ -20,7 +20,7 @@ class ActivityCreate( LoginRequiredMixin, CreateView):
     self.object = form.save(commit=False)
     self.object.user= self.request.user
     self.object.save()
-    return HttpResponseRedirect('/activity')
+    return HttpResponseRedirect('/')
 
 
 class ActivityUpdate(LoginRequiredMixin, UpdateView):
@@ -29,12 +29,12 @@ class ActivityUpdate(LoginRequiredMixin, UpdateView):
   def form_valid(self, form):
     self.object = form.save(commit=False)
     self.object.save()
-    return HttpResponseRedirect('/activity')
+    return HttpResponseRedirect('/')
 
 
 class ActivityDelete(LoginRequiredMixin, DeleteView):
   model = Activity
-  success_url = '/activity'
+  success_url = '/'
 
 
 def index(request):
